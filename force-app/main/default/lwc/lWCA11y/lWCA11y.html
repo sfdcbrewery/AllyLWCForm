@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-container--center slds-container--large bg-white">
+        <!--Cards should use an underlying <lightning-tile> element to maintain usability for some screen reader users-->
+        <lightning-tile class="slds-has-bottom-magnet">
+            <img src={lunchBanner} />
+        </lightning-tile>
+        <lightning-tile variant="narrow" class="slds-has-top-magnet bg-green">
+            <h1
+                class='slds-align_absolute-center slds-p-around_small slds-size_4-of-4 slds-text-color_inverse slds-text-heading_medium'>
+                Lunch Sign-Up
+            </h1>
+        </lightning-tile>
+        <div class="slds-box">
+            <p class='slds-p-top_x-small slds-text-heading_small slds-align_absolute-center slds-p-bottom_small'>
+                Joining us for lunch? Select your preferences below!
+            </p>
+            <!--
+            Groups of radio buttons should be marked up using the fieldset and legend element. 
+            This helps someone using assistive technology to understand the question they're answering with the group of radio buttons.
+            -->
+            <lightning-radio-group name="pickupTime" label="Pick-up Time" options={radioInputOptions}
+                value={radioInputValue} required type="radio" class="slds-p-bottom_small">
+            </lightning-radio-group>
+            <lightning-combobox name="meal" label="Meal" class="slds-p-bottom_small" placeholder="Select a Meal Option"
+                options={mealOptions} required></lightning-combobox>
+            <lightning-combobox name="drink" label="Drink" class="slds-p-bottom_small"
+                placeholder="Select a Drink Option" options={drinkOptions} required></lightning-combobox>
+            <p class="slds-text-color_weak slds-text-body_small slds-p-bottom_small ">Note: Bring your reusable
+                bottle
+                to fill up on water!</p>
+            <lightning-combobox name="dessert" label="Dessert" class="slds-p-bottom_small"
+                placeholder="Select a Dessert Option" options={dessertOptions}></lightning-combobox>
+            <lightning-textarea name="dietary-constraints" class="slds-p-bottom_medium" required
+                label="Any allergies or dietary constraints?" maxlength="60">
+            </lightning-textarea>
+            <lightning-button class="slds-col slds-size_4-of-12 slds-align_absolute-center" variant="brand"
+                label="Go to Inaccessible app" onclick={handleClick} slot="actions">
+            </lightning-button>
+        </div>
+        <div class="slds-col slds-size_1-of-6 position-right">
+            <img src={chefAstro} class="slds-size_2-of-4 position-right" />
+        </div>
+    </div>
+</template>
